@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 13:50:04 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 13:21:07 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/09 15:58:13 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/09 15:58:15 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,26 @@ uint64_t	get_time(void)
 
 	gettimeofday(&tv, NULL);
 	return ((tv.tv_sec * (uint64_t)1000) + (tv.tv_usec / 1000));
+}
+
+void		delay_time(int time)
+{
+	struct timeval	target_time;
+	struct timeval	now_time;
+	int				target;
+	int				now;
+
+	gettimeofday(&target_time, NULL);
+	target = target_time.tv_sec * 1000 + target_time.tv_usec / 1000;
+	target = target + time;
+	gettimeofday(&now_time, NULL);
+	now = now_time.tv_sec * 1000 + now_time.tv_usec / 1000;
+	while (target >= now)
+	{
+		usleep(100);
+		gettimeofday(&now_time, NULL);
+		now = now_time.tv_sec * 1000 + now_time.tv_usec / 1000;
+	}
 }
 
 int			ft_strlen(char *str)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   forks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 11:00:39 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 11:54:07 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/09 15:57:21 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/09 15:57:22 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	put_down_forks(t_philo *philo)
 	print_message(philo, PHILO_SLEEP);
 	sem_post(philo->game->fork_m);
 	sem_post(philo->game->fork_m);
-	usleep(philo->game->tts * 1000);
+	delay_time(philo->game->tts);
 }

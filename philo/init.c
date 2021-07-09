@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 15:01:08 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/08 10:44:49 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/09 15:56:26 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/09 15:58:56 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@ void		init_philosophers(t_game *game)
 	{
 		game->philosophers[i].is_eating = 0;
 		game->philosophers[i].idx = i;
-		game->philosophers[i].lfork = i;
-		game->philosophers[i].rfork = (i + 1) % game->philo_num;
+		if (i % 2 == 0)
+		{
+			game->philosophers[i].lfork = i;
+			game->philosophers[i].rfork = (i + 1) % game->philo_num;
+		}
+		else{
+			game->philosophers[i].lfork = (i + 1) % game->philo_num;
+			game->philosophers[i].rfork = i;
+		}
 		game->philosophers[i].eat_cnt = 0;
 		game->philosophers[i].game = game;
 		pthread_mutex_init(&game->philosophers[i].mutex, NULL);

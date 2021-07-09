@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/18 11:00:21 by bkwag             #+#    #+#             */
-/*   Updated: 2021/06/20 13:00:15 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/09 15:56:02 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/09 15:56:05 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	eat(t_philo *philo)
 	philo->last_eat_time = get_time();
 	philo->starve_time = philo->last_eat_time + philo->game->ttd;
 	print_message(philo, PHILO_EAT);
-	usleep(philo->game->tte * 1000);
+	delay_time(philo->game->tte);
 	philo->eat_cnt++;
 	philo->is_eating = 0;
 	pthread_mutex_unlock(&philo->mutex);

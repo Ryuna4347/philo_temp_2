@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 12:54:01 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/08 10:42:23 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/09 15:56:50 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/09 15:56:52 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ int						clear(t_game *game);
 void					take_forks(t_philo *philo);
 void					put_down_forks(t_philo *philo);
 void					eat(t_philo *philo);
+void					delay_time(int time);
 
 #endif

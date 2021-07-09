@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bkwag <bkwag@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/20 12:56:19 by bkwag             #+#    #+#             */
-/*   Updated: 2021/07/08 10:42:26 by bkwag            ###   ########.fr       */
+/*   Created: 2021/07/09 15:58:00 by hyunyoo           #+#    #+#             */
+/*   Updated: 2021/07/09 15:58:03 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ char					*ft_sem_name(char *sem_name, char *buffer, int idx);
 void					*monitor_least(void *arg);
 void					*monitor(void *arg);
 int						fork_monitor_thread(t_game *game);
+void					delay_time(int time);
 
 #endif
