@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:56:26 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 15:58:56 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/09 16:07:36 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void		init_philosophers(t_game *game)
 			game->philosophers[i].lfork = i;
 			game->philosophers[i].rfork = (i + 1) % game->philo_num;
 		}
-		else{
+		else
+		{
 			game->philosophers[i].lfork = (i + 1) % game->philo_num;
 			game->philosophers[i].rfork = i;
 		}
