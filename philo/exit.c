@@ -6,13 +6,13 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:56:12 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 15:56:13 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 15:45:01 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		clear(t_game *game)
+void	clear(t_game *game)
 {
 	int i;
 
