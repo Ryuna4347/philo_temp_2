@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:56:32 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 15:56:32 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 11:33:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int			main(int argc, char *argv[])
 	}
 	pthread_mutex_lock(&game.somebody_dead_m);
 	pthread_mutex_unlock(&game.somebody_dead_m);
+	usleep(1000*1000);
 	clear(&game);
 	return (0);
 }
