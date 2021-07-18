@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:57:26 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 15:57:27 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 15:31:28 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,14 @@ int		read_argv(t_game *game, int argc, char **argv)
 {
 	if ((game->philo_num = ft_atoi(argv[1])) < 1)
 		return (2);
-	if (game->philo_num > 200)
-		return (1);
-	game->ttd = ft_atoi(argv[2]);
-	game->tte = ft_atoi(argv[3]);
-	game->tts = ft_atoi(argv[4]);
+	if (game->philo_num >= 200)
+		return (2);
+	if ((game->ttd = ft_atoi(argv[2])) <= 60)
+		return (2);
+	if ((game->tte = ft_atoi(argv[3])) <= 60)
+		return (2);
+	if ((game->tts = ft_atoi(argv[4])) <= 60)
+		return (2);
 	if (argc == 6)
 		game->least_eat_num = ft_atoi(argv[5]);
 	else
@@ -68,9 +71,9 @@ int		read_argv(t_game *game, int argc, char **argv)
 	game->dead = 0;
 	game->fork_m = NULL;
 	game->philosophers = NULL;
-	if (!(ft_malloc(&game->philosophers,
-	sizeof(*(game->philosophers)) * game->philo_num)))
+	if (!(game->philosophers = (t_philo *)malloc(
+	sizeof(t_philo) * game->philo_num)))
 		return (1);
-	init_philosophers(game);
-	return (init_semaphores(game));
+	init_semaphores(game);
+	return (init_philosophers(game));
 }

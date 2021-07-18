@@ -6,7 +6,7 @@
 #    By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/09 15:57:44 by hyunyoo           #+#    #+#              #
-#    Updated: 2021/07/09 15:57:45 by hyunyoo          ###   ########.fr        #
+#    Updated: 2021/07/18 15:22:28 by hyunyoo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ NAME			= philo_bonus
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@gcc ${CFLAGS} -g -o ${NAME} ${OBJS} ${LIBS}
+				gcc -g ${CFLAGS} -o ${NAME} ${OBJS} ${LIBS}
 
 clean:
 				@$(RM) $(OBJS) $(BONUS_OBJS)

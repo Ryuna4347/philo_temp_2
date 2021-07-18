@@ -6,13 +6,13 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:57:16 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 15:57:17 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 15:29:19 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int		clear(t_game *game)
+void	clear(t_game *game)
 {
 	int		i;
 	char	buffer[50];
@@ -35,7 +35,6 @@ int		clear(t_game *game)
 		}
 		free(game->philosophers);
 	}
-	return (1);
 }
 
 int		ft_error(char *msg)

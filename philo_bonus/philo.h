@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:58:00 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 15:58:03 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 15:29:35 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int						read_argv(t_game *game, int argc, char **argv);
 uint64_t				get_time(void);
 void					ft_putnbr_fd(uint64_t n, int fd);
 void					print_message(t_philo *philo, int type);
-int						clear(t_game *game);
+void					clear(t_game *game);
 void					take_forks(t_philo *philo);
 void					put_down_forks(t_philo *philo);
 void					eat(t_philo *philo);
