@@ -6,7 +6,7 @@
 /*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:56:12 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/18 15:45:01 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 15:51:00 by hyunyoo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	clear(t_game *game)
 	}
 	pthread_mutex_destroy(&game->write_m);
 	pthread_mutex_destroy(&game->somebody_dead_m);
-	return (1);
 }
 
 int		ft_error(char *msg)
