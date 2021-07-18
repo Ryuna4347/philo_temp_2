@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:56:32 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/18 11:33:24 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/18 11:59:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void		*routine(void *arg)
 	pthread_detach(tid);
 	while (1)
 	{
+		if (philo->global->done == 1)
+			return ((void*)0);
 		take_forks(philo);
 		eat(philo);
 		put_down_forks(philo);
