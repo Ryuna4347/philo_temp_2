@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyunyoo <hyunyoo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:56:26 by hyunyoo           #+#    #+#             */
-/*   Updated: 2021/07/09 16:07:36 by hyunyoo          ###   ########.fr       */
+/*   Updated: 2021/07/18 11:44:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int			init_mutexes(t_game *game)
 	pthread_mutex_init(&game->write_m, NULL);
 	pthread_mutex_init(&game->somebody_dead_m, NULL);
 	pthread_mutex_lock(&game->somebody_dead_m);
-	if (!(ft_malloc(&(game->fork_m),
-	sizeof(*(game->fork_m)) * game->philo_num)))
+	if (!(game->fork_m = (pthread_mutex_t *)malloc(
+	sizeof(pthread_mutex_t) * game->philo_num)))
 		return (1);
 	idx = 0;
 	while (idx < game->philo_num)
@@ -60,11 +60,14 @@ int			read_argv(t_game *game, int argc, char **argv)
 {
 	if ((game->philo_num = ft_atoi(argv[1])) < 1)
 		return (2);
-	if (game->philo_num > 200)
+	if (game->philo_num >= 200)
 		return (2);
-	game->ttd = ft_atoi(argv[2]);
-	game->tte = ft_atoi(argv[3]);
-	game->tts = ft_atoi(argv[4]);
+	if ((game->ttd = ft_atoi(argv[2])) <= 60)
+		return (2);
+	if ((game->tte = ft_atoi(argv[3])) <= 60)
+		return (2);
+	if ((game->tts = ft_atoi(argv[4])) <= 60)
+		return (2);
 	if (argc == 6)
 		game->least_eat_num = ft_atoi(argv[5]);
 	else
@@ -72,8 +75,8 @@ int			read_argv(t_game *game, int argc, char **argv)
 	game->dead = 0;
 	game->fork_m = NULL;
 	game->philosophers = NULL;
-	if (!(ft_malloc(&game->philosophers,
-	sizeof(*(game->philosophers)) * game->philo_num)))
+	if (!(game->philosophers = (t_philo *)malloc(
+	sizeof(t_philo) * game->philo_num)))
 		return (1);
 	init_philosophers(game);
 	return (init_mutexes(game));
